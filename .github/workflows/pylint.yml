@@ -10,20 +10,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.11
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.11
 
-    - name: Install dependencies
-      run: |
-        pip install -r requirements.txt
-      working-directory: ./backend  # Adjust this to your backend directory if needed
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+        working-directory: ./backend
 
-    - name: Run pylint
-      run: |
-        pylint .
-      working-directory: ./backend  # Adjust this to your backend directory if needed
+      - name: Install pylint
+        run: pip install pylint
+
+      - name: Run pylint
+        run: |
+          pylint .
+        working-directory: ./backend
