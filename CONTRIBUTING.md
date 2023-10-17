@@ -48,3 +48,4 @@ Welcome to the Online Booking System project! We appreciate your interest and co
 By contributing, you agree that your contributions will be licensed under the project's [LICENSE]().
 
 Thank you for your contributions! 🚀
+Happy Coding
