@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Admin entity Module"""
-
-from backend import db
+"""Admin Entity model"""
+from .base_model import BaseModel
+from app import db
 import bcrypt
 
 
-class Admin(db.Model):
+class Admin(BaseModel):
     """Admin entity class"""
 
     __tablename__ = "admins"
@@ -42,15 +42,28 @@ class Admin(db.Model):
     @password.setter
     def password(self, password):
         """Sets the hashed password"""
-        self._password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+        self._password = bcrypt.hashpw(
+            password.encode('utf-8'), bcrypt.gensalt())
 
     def check_password(self, password):
         """Verifies if the provided password matches the hashed password"""
-        return bcrypt.checkpw(password.encode('utf-8'), self._password.encode('utf-8'))
+        return bcrypt.checkpw(
+            password.encode('utf-8'), self._password.encode('utf-8'))
+
+    def format(self):
+        """Format the Admin object's attributes as a dictionary"""
+        return {
+            'id': self.id,
+            'username': self.username,
+            'email': self.email,
+            'company': self.company,
+            'position': self.position,
+            'first_name': self.first_name,
+            'last_name': self.last_name,
+            'full_name': self.full_name,
+        }
 
     def __repr__(self):
         """Return a string representation of the Admin object"""
-        return "Id: {}, Username: {}, Name: {}, Email: {}".format(
-            self.id, self.username, self.full_name, self.email
-        )
-
+        return f"Id: {self.id}, Username: {
+            self.username}, Name: {self.full_name}, Email: {self.email}"

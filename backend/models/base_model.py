@@ -2,8 +2,10 @@
 """
 Base template for the Online driven application
 """
-from backend import db
+from flask_sqlalchemy import SQLAlchemy
 from uuid import uuid4
+
+db = SQLAlchemy()
 
 
 def get_uuid():
@@ -41,3 +43,4 @@ class BaseModel(db.Model):
         raise NotImplementedError(
             "Subclasses must implement the 'format' method"
         )
+ 
