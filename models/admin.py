@@ -65,5 +65,5 @@ class Admin(BaseModel):
 
     def __repr__(self):
         """Return a string representation of the Admin object"""
-        return f"Id: {self.id}, Username: {
-            self.username}, Name: {self.full_name}, Email: {self.email}"
+        return (f"Id: {self.id}, Username: {self.username}, Name: {self.full_name}, Email: {self.email}"
+        )

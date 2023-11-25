@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """User Entity Module"""
 from .base_model import BaseModel
-from ...app import db
+from  app import db
 
 
 class User(BaseModel):

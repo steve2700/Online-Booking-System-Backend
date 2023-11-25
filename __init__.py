@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 '''
-Main app Module
+Initializer Module
 '''
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
@@ -13,6 +13,11 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-
-if __name__=='__main__':
-    app.run(debug=True)
+# Import your models here
+from models.base_model import BaseModel
+from models.user import User
+from models.event import Event
+from models.admin import Admin
+from models.booking import Booking
+from models.event_attendees import event_attendees
+from models.venue import Venue
